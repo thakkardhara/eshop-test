@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/context/CartContext"; // <-- import your provider
-import { WishlistProvider } from "@/context/WishlistContext"; // <-- import your provider
+import { CartProvider } from "@/context/CartContext"; 
+import { WishlistProvider } from "@/context/WishlistContext"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

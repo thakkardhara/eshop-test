@@ -58,7 +58,7 @@ export default function Products() {
                 <div
                   key={product.id}
                   onClick={(e) => {
-                    // Prevent card click if heart is clicked
+                 
                     if (e.target.closest(".wishlist-heart")) return;
                     router.push(`/${product.id}/productdetail`);
                   }}

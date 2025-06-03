@@ -9,7 +9,7 @@ import { useCart } from "@/context/CartContext";
 const ProductDetail = ({ id }) => {
   const product = products.find((p) => p.id === Number(id));
 
-  // Build an array of image URLs (img1..img4) that actually exist
+ 
   function getImgPath(img) {
     if (!img) return null;
     return img.startsWith("/") ? img : `/${img}`;
@@ -24,7 +24,7 @@ const ProductDetail = ({ id }) => {
   console.log("Product Detail:", images);
 
   const [mainImg, setMainImg] = useState(images[0]);
-  // Modal state for mobile image preview
+ 
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewIdx, setPreviewIdx] = useState(0);
   const [selectedColor, setSelectedColor] = useState(
@@ -48,10 +48,10 @@ const ProductDetail = ({ id }) => {
     window.location.href = "/cart";
   };
 
-  // Helper to detect small/tablet screens
+ 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
-  // Swipe handlers for modal
+
   function handleSwipe(direction) {
     if (direction === "left") {
       setPreviewIdx((prev) => (prev + 1) % images.length);
@@ -60,7 +60,7 @@ const ProductDetail = ({ id }) => {
     }
   }
 
-  // Touch event state
+
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
 
@@ -88,10 +88,10 @@ const ProductDetail = ({ id }) => {
   return (
     <>
       <Navbar />
-      {/* Mobile/Tablet Image Preview Modal */}
+
       {isPreviewOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-orange-400 via-[#ECD3C4] to-orange-600 animate-fadeIn">
-          {/* Close Button */}
+      
           <button
             className="absolute top-4 right-4 text-2xl font-bold text-orange-600 bg-white bg-opacity-80 rounded-full shadow-lg px-2 hover:bg-orange-100 transition"
             onClick={() => setIsPreviewOpen(false)}
@@ -99,7 +99,7 @@ const ProductDetail = ({ id }) => {
           >
             &times;
           </button>
-          {/* Previous Button */}
+      
           <button
             className="absolute left-2 top-1/2 -translate-y-1/2 text-2xl text-white bg-orange-500 bg-opacity-80 rounded-full shadow-lg px-2 pb-0.5 hover:bg-orange-600 transition"
             onClick={() => handleSwipe("right")}
@@ -107,7 +107,7 @@ const ProductDetail = ({ id }) => {
           >
             &#8592;
           </button>
-          {/* Main Preview Image */}
+    
           <img
             src={images[previewIdx]}
             alt={`Preview ${previewIdx + 1}`}
@@ -116,7 +116,7 @@ const ProductDetail = ({ id }) => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           />
-          {/* Next Button */}
+         
           <button
             className="absolute right-2 top-1/2 -translate-y-1/2 text-2xl text-white bg-orange-500 bg-opacity-80 rounded-full shadow-lg px-2 pb-0.5 hover:bg-orange-600 transition"
             onClick={() => handleSwipe("left")}
@@ -151,7 +151,7 @@ const ProductDetail = ({ id }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* ---------- IMAGE SECTION ---------- */}
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 w-full">
-            {/* Thumbnails (Mobile: horizontal below main image, Desktop: vertical) */}
+
             <div className="order-2 md:order-1 w-full md:w-auto">
               <div
                 className="flex md:flex-col gap-3 overflow-x-auto md:overflow-x-visible px-1 py-2 md:py-0 scrollbar-thin scrollbar-thumb-orange-400 scrollbar-track-[#ECD3C4]"
@@ -202,14 +202,14 @@ const ProductDetail = ({ id }) => {
             </div>
           </div>
 
-          {/* ---------- DETAILS SECTION ---------- */}
+
           <div className="flex flex-col justify-start mb-5">
-            {/* 1️⃣ TITLE */}
+      
             <h1 className="text-4xl font-bold text-orange-400 mb-2">
               {product.name}
             </h1>
 
-            {/* 2️⃣ PRICE, OLD PRICE & DISCOUNT */}
+
             <div className="flex items-center mb-4">
               <span className="text-2xl font-semibold text-orange-400">
                 ${product.price.toFixed(2)}
@@ -226,12 +226,12 @@ const ProductDetail = ({ id }) => {
               )}
             </div>
 
-            {/* 3️⃣ DESCRIPTION */}
+
             {product.description && (
               <p className="text-gray-600 mb-6">{product.description}</p>
             )}
 
-            {/* 4️⃣ COLOR OPTIONS */}
+
             {product.colorsAvailable?.length > 0 && (
               <div className="mb-6">
                 <p className="text-gray-800 font-medium mb-2">Color</p>
@@ -253,7 +253,7 @@ const ProductDetail = ({ id }) => {
               </div>
             )}
 
-            {/* 5️⃣ SIZE OPTIONS */}
+   
             {product.sizes?.length > 0 && (
               <div className="mb-6">
                 <p className="text-gray-800 font-medium mb-2">Size</p>
@@ -275,7 +275,7 @@ const ProductDetail = ({ id }) => {
               </div>
             )}
 
-            {/* 6️⃣ QUANTITY */}
+        
             <div className="mb-6">
               <p className="text-gray-800 font-medium mb-2">Quantity</p>
               <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden">
@@ -302,7 +302,7 @@ const ProductDetail = ({ id }) => {
               </div>
             </div>
 
-            {/* 7️⃣ ADD TO CART BUTTON */}
+   
             {product.stock > 0 ? (
               <button
                 onClick={handleAddToCart}

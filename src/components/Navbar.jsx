@@ -12,7 +12,7 @@ const Navbar = ({ search, setSearch }) => {
 
   return (
     <nav className="bg-white shadow-lg px-6 py-3 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-50">
-      {/* Logo */}
+    
       <div
         className="text-md lg:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400 cursor-pointer"
         onClick={() => router.push("/")}
@@ -20,7 +20,7 @@ const Navbar = ({ search, setSearch }) => {
         eShope
       </div>
 
-      {/* Search Bar */}
+    
       <div className="flex-1 max-w-xl w-full">
         <input
           type="text"
@@ -31,9 +31,9 @@ const Navbar = ({ search, setSearch }) => {
         />
       </div>
 
-      {/* Desktop Icons */}
+  
       <div className="hidden sm:flex items-center space-x-4">
-        {/* Wishlist */}
+  
         <button
           className="relative p-3 rounded-full bg-gradient-to-br from-orange-100 to-white hover:from-orange-200 hover:to-orange-50 transition-all duration-300 shadow"
           onClick={() => router.push("/wishlist")}
@@ -41,7 +41,7 @@ const Navbar = ({ search, setSearch }) => {
           <FiHeart className="text-2xl text-orange-600" />
         </button>
 
-        {/* Cart */}
+  
         <button
           className="relative p-3 rounded-full bg-gradient-to-br from-orange-100 to-white hover:from-orange-200 hover:to-orange-50 transition-all duration-300 shadow"
           onClick={() => router.push("/cart")}
@@ -71,7 +71,7 @@ const Navbar = ({ search, setSearch }) => {
             className="fixed inset-0 bg-[#17171763] "
             onClick={() => setMobileMenuOpen(false)}
           />
-          {/* Drawer */}
+ 
           <div className="ml-auto h-full w-72 max-w-full bg-white shadow-xl flex flex-col items-start relative animate-slideInRight">
             <button
               className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100"
