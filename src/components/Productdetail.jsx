@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import products from "@/data/products.json";
 import Navbar from "./Navbar";
-import ReactImageMagnify from "react-image-magnify";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import { useCart } from "@/context/CartContext";
 
 const ProductDetail = ({ id }) => {
@@ -190,25 +191,13 @@ const ProductDetail = ({ id }) => {
                   }}
                 />
               ) : (
-                <ReactImageMagnify
-                  {...{
-                    smallImage: {
-                      alt: product.name,
-                      isFluidWidth: true,
-                      src: mainImg,
-                    },
-                    largeImage: {
-                      src: mainImg,
-                      width: 1000,
-                      height: 1000,
-                    },
-                    enlargedImageContainerStyle: { zIndex: 999 },
-                    enlargedImageContainerDimensions: {
-                      width: "120%",
-                      height: "100%",
-                    },
-                  }}
-                />
+                <Zoom>
+                  <img
+                    src={mainImg}
+                    alt={product.name}
+                    className="object-contain w-full h-80 rounded-md cursor-zoom-in border-orange-400 shadow-lg"
+                  />
+                </Zoom>
               )}
             </div>
           </div>
