@@ -67,10 +67,14 @@ const Cart = () => {
                     <div className="font-semibold text-orange-600">
                       {item.name}
                     </div>
-                    <div className="text-sm text-gray-600">
+                    {
+                      item.size? <>
+                      <div className="text-sm text-gray-600">
                       {item.color && <>Color: {item.color} • </>}
                       Size: {item.size}
                     </div>
+                      </> :''
+                    }
                     <div className="font-semibold text-orange-600 mt-1">
                       ${Number(item.price).toFixed(2)}
                     </div>
